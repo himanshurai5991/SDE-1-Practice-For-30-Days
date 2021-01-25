@@ -26,5 +26,20 @@
 
 
  public int findDuplicate(int[] nums) {
+   int i=0;//1,3,4,2,2
+        while(i<nums.length){
+            int val = nums[i];//4,0
+            if (val == i){
+                i--;
+                continue;
+            }
+            if (nums[val] == val)//2,4
+                return val;
+            nums[i] = nums[val];//[2,3,4,2,2]
+            nums[val] = val;//[2,1,2,3,4]
+            i++;
+        }
+        return -1;
+ 
       
  }
